@@ -35,7 +35,7 @@ and in the meta repo's `docs/`.
 - Product & scope: `../docs/overview/product.md`
 - Architecture / data flow: `../docs/overview/architecture.md`
 - Glossary: `../docs/overview/glossary.md`
-- This component's bridge page: `../docs/components/docs-site.md`
+- This component's bridge page: `../docs/components/docusaurus.md`
 - Roadmap & open questions: `../docs/roadmap/`
 
 ## Routing table (this repo)
