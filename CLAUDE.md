@@ -19,7 +19,7 @@ and in the meta repo's `docs/`.
 
 - **Role in Yggdrasil:** Docs site
 - **Stack:** Docusaurus
-- **Talks to:** No backend integration — published static documentation
+- **Talks to:** No API integration — published static documentation
 
 ## Two different `docs/` trees (important)
 
