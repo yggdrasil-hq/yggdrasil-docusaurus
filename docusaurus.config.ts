@@ -7,9 +7,6 @@ const baseUrl = process.env.DOCS_BASE_URL ?? "/docs/";
 const config: Config = {
   title: "Yggdrasil Docs",
   tagline: "Product documentation",
-  future: {
-    v4: true,
-  },
   url: "https://docs.example.com",
   baseUrl,
   organizationName: "yggdrasil-hq",
