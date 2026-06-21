@@ -17,6 +17,7 @@ const config: Config = {
     defaultLocale: "en",
     locales: ["en"],
   },
+  favicon: "favicon.ico",
   presets: [
     [
       "classic",
@@ -39,6 +40,12 @@ const config: Config = {
     },
     navbar: {
       title: "Yggdrasil",
+      logo: {
+        alt: "Yggdrasil",
+        src: "img/branding/svg/mark.svg",
+        width: 28,
+        height: 28,
+      },
       items: [
         {
           type: "docSidebar",

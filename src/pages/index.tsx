@@ -46,7 +46,7 @@ const quickLinks = [
 ];
 
 export default function Home(): JSX.Element {
-  const logoSrc = useBaseUrl("/img/branding/svg/stacked-lockup.svg");
+  const logoSrc = useBaseUrl("/img/branding/svg/horizontal-lockup.svg");
 
   return (
     <Layout
