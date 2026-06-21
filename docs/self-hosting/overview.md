@@ -10,7 +10,7 @@ Yggdrasil is composed of three runtime services plus two frontend services, all 
 
 | Service | What it does |
 |---------|-------------|
-| **Web** | The React/Next.js web app users interact with. Serves the feature management UI and live run monitoring. |
+| **Web** | The React/Next.js web app users interact with. Projects, features, tests, project home, notifications, and live run monitoring. |
 | **API** | Source of truth for all persistent state. Owns the database, GitHub OAuth tokens, and the event stream. Dispatches jobs to the Orchestrator and relays events to the Web app. |
 | **Orchestrator** | Stateless execution layer. Receives a job spec, runs it in an ephemeral container, streams events back, and archives artefacts. Owns no durable state between runs. |
 
@@ -27,14 +27,14 @@ Yggdrasil is composed of three runtime services plus two frontend services, all 
 
 ```
 User (Web app)
-   │  writes feature spec, hits "run"
+   │  creates features/tests, approves ADRs, reviews action queue
    ▼
 API  ─── dispatches job spec ──►  Orchestrator
                                        │  provisions container
                                        │  injects Pi agent
-                                       │  clones repo, creates branch
-                                       │  opens draft PR
-                                       │  runs agent, streams events
+                                       │  clones repos, creates branch (builds)
+                                       │  opens draft PR / runs test agent
+                                       │  streams events
                                        ▼
 API  ◄─── events (logs, PR, status) ───┘
    │  persists state, relays to Web app

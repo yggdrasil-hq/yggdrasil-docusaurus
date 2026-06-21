@@ -4,18 +4,51 @@ sidebar_position: 1
 
 # Projects
 
-A **project** is a GitHub repository connected to Yggdrasil, plus the configuration that controls how the AI agent works inside it.
+A **project** is how you connect one or more GitHub repositories to Yggdrasil and manage all the work inside them — features, tests, and agent configuration.
 
 ## What a project contains
 
-- **Connected repository** — the GitHub repo the agent will clone, branch, and open pull requests against.
-- **Agent model** — the AI model the agent uses by default. Can be overridden per feature.
-- **Tool allowlist** — which packages and tools the agent is permitted to install inside its container.
-- **Pi extensions** — optional custom TypeScript modules that extend the agent's capabilities for your specific codebase.
-- **Token budget** — an optional cap on AI token usage and wall-clock time per job.
+- **Primary repository** — the repo where Yggdrasil opens branches and pull requests. This is the coordination root for the project.
+- **Linked sub-repositories** *(optional)* — additional repos cloned alongside the primary on every agent job. Use these when your app spans multiple repos (for example, a frontend and a backend).
+- **Agent configuration** — model, tool allowlist, Pi extensions, and optional token budget. The agent uses this configuration on every job in the project.
 
-## How projects relate to features
+Every feature and test run clones **all** linked repositories — there is no per-feature repo scoping. Single-repo projects are the common case: just a primary repository, no sub-repos.
 
-A project is the container; features are the units of work inside it. Each feature spec you write belongs to a project, and the agent uses the project's configuration when it runs.
+## Creating a project
 
-See [Features →](features) to learn how to describe work for the agent.
+From the **Projects** page, click **New project** and provide:
+
+1. A **name** and short **description**
+2. The **primary repository** (`owner/repo`)
+3. Any **linked sub-repositories** you need
+
+Yggdrasil requests GitHub access for every linked repository when you connect them.
+
+## Project initialization
+
+When you create a project, Yggdrasil automatically starts **project initialization**. This is a special first feature (`project_init`) that adapts your codebase for Yggdrasil — build commands, conventions, and project settings.
+
+While initialization is running, the project status is **`initializing`**. During this phase you **cannot** create other features or define tests.
+
+The project becomes **`ready`** when project initialization completes and its pull request is **merged**. Only then can you add features and tests.
+
+:::tip
+Open **Project home** to track initialization progress and see what needs your attention.
+:::
+
+## Project home
+
+Each project has a **home page** that gives you an at-a-glance view of progress:
+
+- **Feature counts** — how many features are planned, being worked on, and completed
+- **Action queue** — items blocking progress until you act (for example, an ADR waiting for review or a pull request ready for merge)
+
+The action queue is sorted oldest-first. Each row links directly to the screen where you can resolve it.
+
+## Where to go next
+
+| I want to… | Go here |
+|------------|---------|
+| Describe new work for the agent | [Features →](features) |
+| Set up scheduled verification | [Tests →](tests) |
+| See events across all projects | [Notifications →](notifications) |

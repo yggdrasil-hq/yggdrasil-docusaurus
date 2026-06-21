@@ -4,13 +4,15 @@ sidebar_position: 1
 
 # Welcome to Yggdrasil
 
-Yggdrasil is an AI-orchestrated software-development suite for small teams. You describe what to build; an AI coding agent builds it inside an isolated container, opens a pull request on your GitHub repository, and streams progress back to you in real time.
+Yggdrasil is an AI-orchestrated software-development suite for small teams. You connect GitHub repositories, describe what to build, and an AI coding agent handles the rest — exploring your codebase, writing specs, implementing features, opening pull requests, and running scheduled tests against your app.
 
 ## How it works
 
-1. **Describe a feature** — write a plain-English spec in the Yggdrasil web app, pointing it at your GitHub repository.
-2. **The agent gets to work** — Yggdrasil spins up an isolated Docker container, injects a coding agent, clones your repo, creates a branch, and starts building.
-3. **Review the pull request** — when the agent finishes, you get a draft PR on GitHub. Review it like any other PR. Request changes, and Yggdrasil re-runs the agent.
+1. **Create a project** — connect a primary GitHub repository (and optional linked sub-repos). Yggdrasil initializes your codebase for agent workflows.
+2. **Describe a feature** — give it a title. The agent grills you on requirements and produces an ADR spec for your review.
+3. **Approve and build** — once you approve the ADR, the agent implements it in an isolated container and opens a draft pull request.
+4. **Review and merge** — review the PR on GitHub like any other. Request changes and the agent can re-run.
+5. **Schedule tests** — define markdown test scenarios that run on a schedule against your `main` branch preview.
 
 No custom tooling, no new review process — your team keeps using GitHub the way it already does.
 
@@ -18,6 +20,8 @@ No custom tooling, no new review process — your team keeps using GitHub the wa
 
 | I want to… | Go here |
 |------------|---------|
-| Use Yggdrasil to build features | [Using Yggdrasil →](using-yggdrasil/projects) |
+| Connect repos and set up a project | [Projects →](using-yggdrasil/projects) |
+| Create work for the agent to build | [Features →](using-yggdrasil/features) |
+| Set up scheduled verification | [Tests →](using-yggdrasil/tests) |
 | Self-host Yggdrasil on my own infrastructure | [Self-Hosting →](self-hosting/overview) |
 | Spin up the stack right now | [Quick Start →](getting-started/quick-start) |

@@ -14,6 +14,8 @@ const sidebars: SidebarsConfig = {
       items: [
         "using-yggdrasil/projects",
         "using-yggdrasil/features",
+        "using-yggdrasil/tests",
+        "using-yggdrasil/notifications",
         "using-yggdrasil/agent-runs",
         "using-yggdrasil/reviewing-prs",
       ],

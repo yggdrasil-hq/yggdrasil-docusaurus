@@ -9,13 +9,14 @@ The **API** is the single source of truth for all persistent state in Yggdrasil.
 ## Responsibility
 
 - User and team management
-- Project and feature CRUD
+- Project, feature, and test CRUD
 - GitHub OAuth — managing user tokens and minting short-lived scoped tokens for Orchestrator runs
-- Job dispatch to the Orchestrator
+- Job dispatch to the Orchestrator (`spec_grill`, `feature_build`, `test_run`)
 - Receiving and persisting streamed run events
 - Relaying live events to the Web app over WebSocket
+- Notifications and project overview (action queue)
 - Artefact references (logs, test reports, recordings stored in object storage)
-- Scheduled test suite management
+- Test schedule management and cron dispatch
 
 ## Key properties
 

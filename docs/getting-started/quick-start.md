@@ -8,14 +8,16 @@ sidebar_position: 1
 
 Once Yggdrasil is running, your team can:
 
-- Connect any GitHub repository as a **project**
-- Write plain-English **feature specs** and dispatch them to the AI agent
-- Watch the agent build, branch, and open a draft pull request — live
+- Connect GitHub repositories as a **project** (primary repo plus optional linked sub-repos)
+- Complete **project initialization** so the agent adapts your codebase
+- Create **features** with a title — the agent grills requirements and produces an ADR
+- Approve ADRs and dispatch **builds** that open draft pull requests
 - Review and merge (or re-run) via standard GitHub pull requests
-- Run test suites on a schedule and get automated reports
+- Define **tests** with markdown specs and run them on a schedule against `main`
+- Track blocking work on **project home** and see events in the global **notifications** feed
 
 :::note
-The Yggdrasil application is currently in active development. The steps below spin up the full stack locally.
+The Yggdrasil application is currently in active development. Some Orchestrator-backed flows (live agent runs, scheduled test execution) require the Orchestrator to be connected. Project, feature, and test management is available in the web app today.
 :::
 
 ## Prerequisites
@@ -54,3 +56,13 @@ Open [http://localhost:8080](http://localhost:8080). The full suite is available
 | `/api` | API |
 | `/orchestrator` | Orchestrator |
 | `/preview/<run-id>/` | Agent previews (available once the Orchestrator is wired up) |
+
+## 4. Create your first project
+
+1. Sign in at `/app` with GitHub
+2. Go to **Projects** → **New project**
+3. Enter a name and connect your primary repository
+4. Complete **project initialization** on project home
+5. Create a **feature** or **test** once the project is **ready**
+
+See [Projects →](../using-yggdrasil/projects) for the full workflow.
