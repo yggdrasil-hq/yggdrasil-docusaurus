@@ -1,0 +1,135 @@
+---
+title: Brand Assets
+sidebar_label: Brand Assets
+sidebar_position: 99
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+export function BrandCard({ label, svgSlug, pngSlug, dark }) {
+  const svgPath = useBaseUrl(`/img/branding/svg/${svgSlug}.svg`);
+  const pngPath = useBaseUrl(`/img/branding/png/${pngSlug}.png`);
+  return (
+    <div style={{
+      border: '1px solid var(--ifm-color-emphasis-300)',
+      borderRadius: '8px',
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+    }}>
+      <div style={{
+        background: dark ? '#1a1a2e' : '#f0f0f0',
+        padding: '2rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '120px',
+      }}>
+        <img src={svgPath} alt={label} style={{ maxHeight: '64px', maxWidth: '100%' }} />
+      </div>
+      <div style={{
+        padding: '0.75rem 1rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '0.5rem',
+      }}>
+        <span style={{ fontSize: '0.875rem', fontWeight: 500 }}>{label}</span>
+        <span style={{ display: 'flex', gap: '0.5rem' }}>
+          <a href={svgPath} download={`yggdrasil-${svgSlug}.svg`} style={{
+            fontSize: '0.75rem',
+            padding: '0.25rem 0.6rem',
+            borderRadius: '4px',
+            border: '1px solid var(--ifm-color-emphasis-400)',
+            textDecoration: 'none',
+            color: 'var(--ifm-color-content)',
+          }}>SVG</a>
+          <a href={pngPath} download={`yggdrasil-${pngSlug}.png`} style={{
+            fontSize: '0.75rem',
+            padding: '0.25rem 0.6rem',
+            borderRadius: '4px',
+            border: '1px solid var(--ifm-color-emphasis-400)',
+            textDecoration: 'none',
+            color: 'var(--ifm-color-content)',
+          }}>PNG</a>
+        </span>
+      </div>
+    </div>
+  );
+}
+
+export function AppTileCard() {
+  const pngPath = useBaseUrl('/img/branding/app-tile.png');
+  return (
+    <div style={{
+      border: '1px solid var(--ifm-color-emphasis-300)',
+      borderRadius: '8px',
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+    }}>
+      <div style={{
+        background: '#f0f0f0',
+        padding: '2rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '120px',
+      }}>
+        <img src={pngPath} alt="App tile" style={{ maxHeight: '64px', maxWidth: '100%' }} />
+      </div>
+      <div style={{
+        padding: '0.75rem 1rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '0.5rem',
+      }}>
+        <span style={{ fontSize: '0.875rem', fontWeight: 500 }}>App tile</span>
+        <a href={pngPath} download="yggdrasil-app-tile.png" style={{
+          fontSize: '0.75rem',
+          padding: '0.25rem 0.6rem',
+          borderRadius: '4px',
+          border: '1px solid var(--ifm-color-emphasis-400)',
+          textDecoration: 'none',
+          color: 'var(--ifm-color-content)',
+        }}>PNG</a>
+      </div>
+    </div>
+  );
+}
+
+# Brand Assets
+
+Official Yggdrasil logos for press, partnerships, and integrations. All assets are provided in SVG (vector) and PNG (raster) formats.
+
+**Usage guidelines:** Do not recolor, stretch, or modify the logos. Use the variant that provides sufficient contrast against your background.
+
+## Lockups
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1rem', margin: '1.5rem 0' }}>
+  <BrandCard label="Primary" svgSlug="primary" pngSlug="primary" dark={false} />
+  <BrandCard label="Muted" svgSlug="muted" pngSlug="muted" dark={false} />
+  <BrandCard label="Light" svgSlug="light" pngSlug="light" dark={true} />
+  <BrandCard label="Mono" svgSlug="mono" pngSlug="mono" dark={false} />
+</div>
+
+## Horizontal lockups
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1rem', margin: '1.5rem 0' }}>
+  <BrandCard label="Horizontal lockup" svgSlug="horizontal-lockup" pngSlug="horizontal-lockup" dark={false} />
+  <BrandCard label="Horizontal knockout" svgSlug="horizontal-knockout" pngSlug="horizontal-knockout" dark={true} />
+</div>
+
+## Stacked lockup
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1rem', margin: '1.5rem 0' }}>
+  <BrandCard label="Stacked lockup" svgSlug="stacked-lockup" pngSlug="stacked-lockup" dark={false} />
+</div>
+
+## Single mark
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1rem', margin: '1.5rem 0' }}>
+  <BrandCard label="Single mark" svgSlug="single" pngSlug="single-color" dark={false} />
+  <AppTileCard />
+</div>

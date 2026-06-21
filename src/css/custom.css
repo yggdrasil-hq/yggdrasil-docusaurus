@@ -1,3 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
 :root {
-  --ifm-color-primary: #5a9aa0;
+  --ygg-niflheim: #080b11;
+  --ygg-surface-01: #0e131b;
+  --ygg-surface-02: #151c26;
+  --ygg-rime: #2a3543;
+  --ygg-frost: #e8eef4;
+  --ygg-mist: #9fb0c0;
+  --ygg-shadow: #5e6e7e;
+  --ygg-bifrost: #2fd4c6;
+  --ygg-aurora: #4f9bf0;
+  --ygg-frostfire: #bfe9ee;
+  --ygg-light-surface: #eef3f7;
+
+  --ifm-font-family-base: "Space Grotesk", system-ui, sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", ui-monospace, monospace;
+  --ifm-color-primary: #0e7c73;
+  --ifm-color-primary-dark: #0b655e;
+  --ifm-color-primary-darker: #0a5f58;
+  --ifm-color-primary-darkest: #084e48;
+  --ifm-color-primary-light: #119388;
+  --ifm-color-primary-lighter: #129a8f;
+  --ifm-color-primary-lightest: #16b3a6;
+  --ifm-background-color: var(--ygg-light-surface);
+  --ifm-font-color-base: #151c26;
+  --ifm-heading-color: #0e131b;
+  --ifm-link-color: #0e7c73;
+  --ifm-link-hover-color: #0b655e;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-link-color: #151c26;
+  --ifm-navbar-link-hover-color: #0e7c73;
+  --ifm-card-background-color: #ffffff;
+  --ifm-code-font-size: 95%;
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: var(--ygg-bifrost);
+  --ifm-color-primary-dark: #27b8ab;
+  --ifm-color-primary-darker: #25aea2;
+  --ifm-color-primary-darkest: #1e9085;
+  --ifm-color-primary-light: #47d9cd;
+  --ifm-color-primary-lighter: #55ddd2;
+  --ifm-color-primary-lightest: #7ae5dc;
+  --ifm-background-color: var(--ygg-niflheim);
+  --ifm-background-surface-color: var(--ygg-surface-01);
+  --ifm-font-color-base: var(--ygg-mist);
+  --ifm-heading-color: var(--ygg-frost);
+  --ifm-link-color: var(--ygg-bifrost);
+  --ifm-link-hover-color: var(--ygg-frostfire);
+  --ifm-navbar-background-color: var(--ygg-surface-01);
+  --ifm-navbar-link-color: var(--ygg-frost);
+  --ifm-navbar-link-hover-color: var(--ygg-bifrost);
+  --ifm-card-background-color: var(--ygg-surface-02);
+  --ifm-hr-border-color: var(--ygg-rime);
+  --ifm-table-border-color: var(--ygg-rime);
+  --ifm-toc-border-color: var(--ygg-rime);
+}
+
+[data-theme="dark"] .docs-landing-hero {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(47, 212, 198, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 20%, rgba(79, 155, 240, 0.08), transparent),
+    var(--ygg-surface-01);
+}
+
+.docs-landing-hero {
+  padding: 4rem 1.5rem 3.5rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(14, 124, 115, 0.08), transparent),
+    linear-gradient(180deg, #ffffff 0%, var(--ygg-light-surface) 100%);
+  border-bottom: 1px solid rgba(42, 53, 67, 0.12);
+}
+
+[data-theme="dark"] .docs-landing-hero {
+  border-bottom-color: var(--ygg-rime);
+}
+
+.docs-landing-hero__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.docs-landing-hero__logo {
+  display: block;
+  margin: 0 auto 2rem;
+  width: min(300px, 75vw);
+  height: auto;
+}
+
+[data-theme="dark"] .docs-landing-hero__logo {
+  filter: brightness(1.05);
+}
+
+.docs-landing-hero__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.docs-landing-hero__tagline {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 1.75rem;
+}
+
+.docs-landing-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.docs-landing-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.docs-landing-section + .docs-landing-section {
+  margin-top: 3rem;
+}
+
+.docs-landing-section__title {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.docs-landing-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.docs-landing-steps__item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem 1.25rem 1.25rem 1rem;
+  border: 1px solid rgba(42, 53, 67, 0.14);
+  border-radius: 12px;
+  background: var(--ifm-card-background-color);
+}
+
+[data-theme="dark"] .docs-landing-steps__item {
+  border-color: var(--ygg-rime);
+}
+
+.docs-landing-steps__number {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(47, 212, 198, 0.14);
+  color: var(--ifm-color-primary);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.docs-landing-steps__title {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.docs-landing-steps__description {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.docs-landing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.docs-landing-card {
+  display: block;
+  padding: 1.25rem;
+  border: 1px solid rgba(42, 53, 67, 0.14);
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+[data-theme="dark"] .docs-landing-card {
+  border-color: var(--ygg-rime);
+}
+
+.docs-landing-card:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+.docs-landing-card__title {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+  color: var(--ifm-heading-color);
+}
+
+.docs-landing-card__description {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ifm-font-color-base);
+}
+
+.docs-landing-hero__actions .button--outline {
+  --ifm-button-background-color: transparent;
+  --ifm-button-border-color: var(--ifm-color-primary);
+  --ifm-button-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.docs-landing-hero__actions .button--outline:hover {
+  --ifm-button-background-color: rgba(47, 212, 198, 0.1);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+[data-theme="dark"] .docs-landing-hero__actions .button--outline {
+  --ifm-button-color: var(--ygg-bifrost);
+  --ifm-button-border-color: var(--ygg-bifrost);
+  color: var(--ygg-bifrost);
+}
+
+[data-theme="dark"] .docs-landing-hero__actions .button--outline:hover {
+  --ifm-button-background-color: rgba(47, 212, 198, 0.12);
+  color: var(--ygg-frostfire);
+  --ifm-button-border-color: var(--ygg-frostfire);
 }

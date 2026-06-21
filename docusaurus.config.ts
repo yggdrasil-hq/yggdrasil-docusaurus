@@ -3,11 +3,12 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const baseUrl = process.env.DOCS_BASE_URL ?? "/docs/";
+const siteUrl = process.env.DOCS_SITE_URL ?? "http://localhost:8080";
 
 const config: Config = {
   title: "Yggdrasil Docs",
   tagline: "Product documentation",
-  url: "https://docs.example.com",
+  url: siteUrl,
   baseUrl,
   organizationName: "yggdrasil-hq",
   projectName: "yggdrasil-docusaurus",
@@ -32,6 +33,10 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    colorMode: {
+      defaultMode: "dark",
+      respectPrefersColorScheme: false,
+    },
     navbar: {
       title: "Yggdrasil",
       items: [
