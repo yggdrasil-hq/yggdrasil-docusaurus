@@ -49,6 +49,11 @@ Each feature moves through these states:
 | `merged` | Pull request merged — feature complete |
 | `failed` / `cancelled` | The run errored or was stopped |
 
+A feature stuck in `failed` at the spec grill stage (for example, because of a
+misconfigured model) can be retried with the **Retry grill** button on the
+feature page once the underlying issue is fixed — this re-dispatches the spec
+grill without losing the feature record.
+
 ## Project home buckets
 
 On **Project home**, features are grouped into three buckets:
