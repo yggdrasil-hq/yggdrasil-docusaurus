@@ -28,6 +28,7 @@ const sidebars: SidebarsConfig = {
         "self-hosting/web",
         "self-hosting/api",
         "self-hosting/orchestrator",
+        "self-hosting/production-images",
       ],
     },
     {
