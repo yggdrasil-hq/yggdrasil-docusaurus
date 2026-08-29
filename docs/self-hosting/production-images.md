@@ -46,6 +46,30 @@ echo "$GHCR_PAT" | docker login ghcr.io -u <your-github-username> --password-std
   credentials (`GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` — this is the only
   sign-in method), a `SECRETS_ENCRYPTION_KEY` (32 random bytes, base64
   encoded), and `INTERNAL_API_TOKEN` (a shared secret with the Orchestrator).
+
+  Separately, connecting projects to GitHub repos (cloning, branches, pull
+  requests) requires registering a **second, distinct GitHub integration** —
+  a GitHub App, not the OAuth App above:
+
+  - `GITHUB_APP_ID`, `GITHUB_APP_PRIVATE_KEY` (PEM), `GITHUB_APP_SLUG`,
+    `GITHUB_APP_WEBHOOK_SECRET`
+  - Webhook URL on the App: `https://<your-api-host>/api/webhooks/github`
+  - Permissions the App must request: **Contents** (read & write),
+    **Pull requests** (read & write), **Workflows** (read & write — a
+    separate permission from Contents; without it, pushes touching
+    `.github/workflows/*` are rejected), **Metadata** (read)
+  - Under **Subscribe to events**, check **Pull request** and
+    **Pull request review** — required for merged/changes-requested PRs to
+    update a feature's status automatically. This isn't enabled by default
+    and there's no way for Yggdrasil to detect it's missing; if merges never
+    update anything in the app, check this first.
+  - A **Setup URL** pointing at `https://<your-api-host>/api/github/install/callback`
+    (with "Redirect on update" checked) — without it, GitHub shows its own
+    generic confirmation page after install instead of returning to the app.
+
+  Without Contents + Pull requests granted, GitHub's install screen shows
+  "This App does not require access to your repositories" and offers no repo
+  picker — the fix is in the App's own GitHub settings, not in Yggdrasil.
 - **Web** — `NEXT_PUBLIC_API_BASE_URL` (the browser-facing API URL),
   `API_INTERNAL_URL` (how the Web app's server reaches the API directly).
 - **Orchestrator** — `DATABASE_URL` (same database as the API), a
