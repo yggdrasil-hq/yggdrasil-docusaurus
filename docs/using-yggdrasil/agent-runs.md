@@ -16,7 +16,9 @@ Yggdrasil dispatches these kinds of jobs to the Orchestrator:
 | `design_grill` | Design session started from a project | Produce a self-contained HTML/CSS mockup through a live chat session, committed to `designs/` |
 
 :::note
-`design_grill` and the automated Testing/Agentic Review gates are designed (see [Features →](features)) but not yet dispatched by the running app — `spec_grill`, `feature_build`, and scheduled `test_run` are live today.
+`design_grill` is available for projects configured with a design surface. It
+creates a live, sandboxed HTML mockup session and opens a draft PR when
+submitted. The automated Testing/Agentic Review gates remain follow-up work.
 :::
 
 Spec and build are **separate runs** — the spec container is torn down after grilling. When you start a build, a new container receives the approved ADR as its contract. A run sent back from Testing, Agentic Review, or Manual Review re-dispatches the same way, with the reviewer's comment attached.
