@@ -4,15 +4,19 @@ sidebar_position: 1
 
 # Projects
 
-A **project** is how you connect one or more GitHub repositories to Yggdrasil and manage all the work inside them — features, tests, and agent configuration.
+A **project** is how you connect one or more GitHub repositories to Yggdrasil and manage all the work inside them — features, tests, deployments, and agent configuration. Every project belongs to your **organization**; switch between organizations from the sidebar if you belong to more than one.
 
 ## What a project contains
 
 - **Primary repository** — the repo where Yggdrasil opens branches and pull requests. This is the coordination root for the project.
 - **Linked sub-repositories** *(optional)* — additional repos cloned alongside the primary on every agent job. Use these when your app spans multiple repos (for example, a frontend and a backend).
-- **Agent configuration** — model, tool allowlist, Pi extensions, and optional token budget. The agent uses this configuration on every job in the project.
+- **Settings** — General, Secrets, and Models, each their own page. See [Organization & Settings →](organization-and-settings#project-settings) for what each covers.
 
 Every feature and test run clones **all** linked repositories — there is no per-feature repo scoping. Single-repo projects are the common case: just a primary repository, no sub-repos.
+
+:::note
+Organizations, roles, and org-managed provider/secret config are part of Yggdrasil's intended shape and described throughout these docs, but aren't live in the running app yet — today, a project belongs to the user who created it. See [Organization & Settings →](organization-and-settings) for details.
+:::
 
 ## Creating a project
 
@@ -21,6 +25,7 @@ From the **Projects** page, click **New project** and provide:
 1. A **name** and short **description**
 2. The **primary repository** (`owner/repo`)
 3. Any **linked sub-repositories** you need
+4. A **model configuration** — sourced from your organization's connected providers, or your own account default if your organization hasn't set one up
 
 Yggdrasil requests GitHub access for every linked repository when you connect them.
 
@@ -52,3 +57,5 @@ The action queue is sorted oldest-first. Each row links directly to the screen w
 | Describe new work for the agent | [Features →](features) |
 | Set up scheduled verification | [Tests →](tests) |
 | See events across all projects | [Notifications →](notifications) |
+| Manage secrets, models, and members | [Organization & Settings →](organization-and-settings) |
+| Track deployments, usage, and spend | [Monitoring →](monitoring) |

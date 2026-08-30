@@ -6,6 +6,10 @@ sidebar_position: 3
 
 A **test** is a scheduled verification scenario. Unlike a feature (which builds new code), a test checks that your app on **`main`** still behaves correctly. Tests are a separate entity with their own lifecycle.
 
+:::note
+Don't confuse this with the **Testing** stage inside a feature's lifecycle ([Features →](features#4-testing)) — that stage runs your existing tests automatically as a gate after Implementation. This page covers creating and scheduling the tests themselves.
+:::
+
 ## When you can add tests
 
 Tests can only be created when the project status is **`ready`** — after [project initialization →](projects#project-initialization) completes.

@@ -4,9 +4,9 @@ sidebar_position: 6
 
 # Reviewing Pull Requests
 
-Yggdrasil produces two kinds of review work: **ADR review** (before any code is written) and **pull request review** (after the agent builds).
+Yggdrasil produces review work at three points in a feature's lifecycle: **ADR review** (before any code is written), **Agentic Review** (the agent checking its own diff), and **Manual Review** (your team's pull request review). See [Features →](features#the-feature-lifecycle) for how these fit into the full six-stage lifecycle.
 
-## ADR review (before the build)
+## ADR review (before implementation)
 
 When spec grilling finishes, the feature is in **`spec_ready`**. Before the agent writes any code:
 
@@ -14,11 +14,15 @@ When spec grilling finishes, the feature is in **`spec_ready`**. Before the agen
 2. Edit the ADR if scope, constraints, or acceptance criteria need refinement.
 3. Approve the ADR and click **Start build** when you are satisfied.
 
-The ADR is stored in Yggdrasil during review. It is committed to your repository only when the build run starts.
+The ADR is stored in Yggdrasil during review. It is committed to your repository only when the Implementation run starts. If the feature has any [Action Items →](features#2-action-items) (a requested secret, a linked test, a blocking sub-feature), those resolve before Implementation begins.
 
-## Pull request review (after the build)
+## Agentic Review (before your team sees it)
 
-When a build run finishes, a **draft pull request** is waiting on your primary repository. Reviewing it works exactly like any other PR your team receives.
+Before a build reaches your team, the agent checks its own diff against the approved ADR — catching drift from the plan early. Changes that pass move to Manual Review; anything flagged sends the feature back to Implementation with a comment, without waiting on a human.
+
+## Manual Review (pull request review)
+
+When a build run finishes and passes Agentic Review, a **draft pull request** is waiting on your primary repository. Reviewing it works exactly like any other PR your team receives.
 
 ### The review flow
 

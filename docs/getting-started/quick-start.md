@@ -10,11 +10,12 @@ Once Yggdrasil is running, your team can:
 
 - Connect GitHub repositories as a **project** (primary repo plus optional linked sub-repos)
 - Complete **project initialization** so the agent adapts your codebase
-- Create **features** with a title — the agent grills requirements and produces an ADR
-- Approve ADRs and dispatch **builds** that open draft pull requests
+- Create **features** with a title and description — the agent grills requirements and produces an ADR
+- Approve ADRs and dispatch **implementation runs** that open draft pull requests
 - Review and merge (or re-run) via standard GitHub pull requests
 - Define **tests** with markdown specs and run them on a schedule against `main`
 - Track blocking work on **project home** and see events in the global **notifications** feed
+- Manage providers, secrets, and members from **organization settings** (see [Organization & Settings →](../using-yggdrasil/organization-and-settings))
 
 :::note
 The Yggdrasil application is currently in active development. Some Orchestrator-backed flows (live agent runs, scheduled test execution) require the Orchestrator to be connected. Project, feature, and test management is available in the web app today.

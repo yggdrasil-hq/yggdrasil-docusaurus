@@ -6,17 +6,22 @@ sidebar_position: 5
 
 A **run** is a single execution of an agent job inside an isolated, ephemeral Docker container. The container is created fresh for each run and torn down when the run ends.
 
-Yggdrasil dispatches three kinds of jobs to the Orchestrator:
+Yggdrasil dispatches these kinds of jobs to the Orchestrator:
 
 | Job kind | Trigger | Purpose |
 |----------|---------|---------|
 | `spec_grill` | Feature created (or re-grill) | Explore the codebase, grill with you, produce an ADR |
-| `feature_build` | You approve an ADR and click **Start build** | Implement the spec and open a pull request |
-| `test_run` | Test schedule fires | Run a markdown test spec against an ephemeral `main` preview |
+| `feature_build` | You approve an ADR and click **Start build** | Implement the spec (the **Implementation** stage) and open a pull request |
+| `test_run` | Test schedule fires, or the **Testing** stage of a feature | Run a markdown test spec against an ephemeral `main` preview |
+| `design_grill` | Design session started from a project | Produce a self-contained HTML/CSS mockup through a live chat session, committed to `designs/` |
 
-Spec and build are **separate runs** — the spec container is torn down after grilling. When you start a build, a new container receives the approved ADR as its contract.
+:::note
+`design_grill` and the automated Testing/Agentic Review gates are designed (see [Features →](features)) but not yet dispatched by the running app — `spec_grill`, `feature_build`, and scheduled `test_run` are live today.
+:::
 
-## What happens during a feature build run
+Spec and build are **separate runs** — the spec container is torn down after grilling. When you start a build, a new container receives the approved ADR as its contract. A run sent back from Testing, Agentic Review, or Manual Review re-dispatches the same way, with the reviewer's comment attached.
+
+## What happens during an implementation run
 
 1. The Orchestrator provisions a fresh Docker container.
 2. The Pi coding agent is injected along with your project's tool allowlist.

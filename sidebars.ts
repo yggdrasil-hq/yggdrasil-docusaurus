@@ -18,6 +18,8 @@ const sidebars: SidebarsConfig = {
         "using-yggdrasil/notifications",
         "using-yggdrasil/agent-runs",
         "using-yggdrasil/reviewing-prs",
+        "using-yggdrasil/organization-and-settings",
+        "using-yggdrasil/monitoring",
       ],
     },
     {
